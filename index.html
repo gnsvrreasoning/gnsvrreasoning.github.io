@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Project: Title of Your Project</title>
+    <style>
+        /* Reset some default browser styles */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        header {
+            background-color:cadetblue;
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 50px;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        author {
+            font-size: 26px;
+            color:antiquewhite;
+        }
+
+        author sup {
+            font-size: 16px;
+        }
+        
+        label {
+            font-size: 20px;
+            font-weight: lighter;
+            color:burlywood;
+        }
+
+        label sup {
+            font-size: 16px;
+        }
+
+        .abstract {
+            margin-top: 35px;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            margin-left: 24%;
+            margin-right: 24%;
+            margin-bottom: 90px;
+            font-size: 18px;
+        }
+
+        .Mechanical {
+            margin-top: 35px;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-bottom: 35px;
+            font-size: 18px;
+        }
+
+        .design {
+            margin-top: 35px;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-bottom: 35px;
+            font-size: 18px;
+        }
+
+        .evaluation {
+            margin-top: 35px;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-bottom: 35px;
+            font-size: 18px;
+        }
+
+        .question_type_caption {
+            font-size: 30px;
+            margin-top: 30px;
+            text-align: center;
+            color:palevioletred;
+        }
+
+        /* Center and adjust video size */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+        }
+
+        .video-container iframe {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .example {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin-left: 23%;
+            margin-right: 23%;
+            margin-bottom: 20px;
+        }
+
+        .image_center_small{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            height: 50%;
+            margin-bottom: 90px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Generative Neuro-Symbolic Visual Reasoning by Growing  </h1>
+          <h1>  and Reusing Modules</h1>
+        <author>Under Submission</author>
+        <br>
+        <br>
+        <label></label>
+        <br>
+    </header>
+
+    <div class="container">
+        <h2>Abstract</h2>
+        <div class="abstract">
+            <p>
+            Recent works have shown that Large Language Models (LLMs) could empower traditional neuro-symbolic models via programming capabilities to translate languages into module descriptions, thus achieving strong visual reasoning results while maintaining the model’s transparency and efficiency. However, these models usually exhaustively generate the entire code snippet given each new instance of a task, which is extremely ineffective. On the contrary, human beings gradually acquire knowledge that can be reused and grow into more profound skills for fast generalization to new tasks since we are an infant. Inspired by this, we propose generative neuro-symbolic visual reasoning by growing and reusing modules. Specifically, our model consists of three unique stages, module initialization, module generation, and module execution. First, given a vision-language task, we adopt LLMs to examine whether we could reuse and grow over established modules to handle this new task. If not, we initialize a new module needed by the task and specify the inputs and outputs of this new module. After that, the new module is created by querying LLMs to generate corresponding code snippets that match the requirements. In order to get a better sense of the new module’s ability, we treat few-shot training examples as test cases to see if our new module could pass these cases. If yes, the new module is added to the module library for future reuse. Finally, we evaluate the performance of our model on the testing set by executing the parsed programs with the newly made visual modules to get the results. We find the proposed GNSVR model possesses several advantages. First, it performs competitively on standard tasks like visual question answering and referring expression comprehension; Second, the visual modules learned from one task can be seamlessly transferred to new tasks; Last but not least, it is able to adapt to new visual reasoning tasks by observing a few training examples and reusing modules.
+            </p>
+        </div>
+
+        <img src="image/teaser_v4.png" alt="Design" class="image_center_small">
+    </div>
+</body>
+</html>
