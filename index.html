@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>GNSVR</title>
@@ -55,8 +56,9 @@
 <!-- Abstract -->
 <div class="section">
 <span class="section-title">Abstract </span>
-<p>Recent works have shown that Large Language Models (LLMs) could empower traditional neuro-symbolic models via programming capabilities to translate languages into module descriptions, thus achieving strong visual reasoning results while maintaining the model’s transparency and efficiency. However, these models usually exhaustively generate the entire code snippet given each new instance of a task, which is extremely ineffective. On the contrary, human beings gradually acquire knowledge that can be reused and grow into more profound skills for fast generalization to new tasks since we are an infant. Inspired by this, we propose generative neuro-symbolic visual reasoning by growing and reusing modules. Specifically, our model consists of three unique stages, module initialization, module generation, and module execution. First, given a vision-language task, we adopt LLMs to examine whether we could reuse and grow over established modules to handle this new task. If not, we initialize a new module needed by the task and specify the inputs and outputs of this new module. After that, the new module is created by querying LLMs to generate corresponding code snippets that match the requirements. In order to get a better sense of the new module’s ability, we treat few-shot training examples as test cases to see if our new module could pass these cases. If yes, the new module is added to the module library for future reuse. Finally, we evaluate the performance of our model on the testing set by executing the parsed programs with the newly made visual modules to get the results. We find the proposed GNSVR model possesses several advantages. First, it performs competitively on standard tasks like visual question answering and referring expression comprehension; Second, the visual modules learned from one task can be seamlessly transferred to new tasks; Last but not least, it is able to adapt to new visual reasoning tasks by observing a few training examples and reusing modules.</p>
-
+<span class="abstract">
+<p>Recent works have shown that Large Language Models (LLMs) could empower traditional neuro-symbolic models via programming capabilities to translate languages into module descriptions, thus achieving strong visual reasoning results while maintaining the model’s transparency and efficiency. However, these models usually exhaustively generate the entire code snippet given each new instance of a task, which is extremely ineffective. On the contrary, human beings gradually acquire knowledge that can be reused and grow into more profound skills for fast generalization to new tasks since we are an infant. Inspired by this, we propose generative neuro-symbolic visual reasoning by growing and reusing modules. Specifically, our model consists of three unique stages, module initialization, module generation, and module execution. First, given a vision-language task, we adopt LLMs to examine whether we could reuse and grow over established modules to handle this new task. If not, we initialize a new module needed by the task and specify the inputs and outputs of this new module. After that, the new module is created by querying LLMs to generate corresponding code snippets that match the requirements. In order to get a better sense of the new module's ability, we treat few-shot training examples as test cases to see if our new module could pass these cases. If yes, the new module is added to the module library for future reuse. Finally, we evaluate the performance of our model on the testing set by executing the parsed programs with the newly made visual modules to get the results. We find the proposed GNSVR model possesses several advantages. First, it performs competitively on standard tasks like visual question answering and referring expression comprehension; Second, the visual modules learned from one task can be seamlessly transferred to new tasks; Last but not least, it is able to adapt to new visual reasoning tasks by observing a few training examples and reusing modules.</p>
+</span>
 
 </div>
 
@@ -66,9 +68,21 @@
 <span class="section-title"> Framework </span>
 <br><br>
 <table align="center"><tbody>
-<tr><td><center><img src="./GNSVR_files/678_stage123.gif" width="1000"></center></td></tr>
+<tr><td><center><img id="stage123" src="./GNSVR_files/678_stage123.gif" width="1000"></center></td></tr>
 </tbody></table>
 </div>
+
+<script>
+  $(function() {
+      $("#stage123").hover(
+          function() {
+              $(this).attr("src", "./GNSVR_files/678_stage123.gif");
+          },
+          function() {
+          }
+      );
+  });
+</script>
 
 
 
@@ -80,10 +94,10 @@
 
 <table align="center"><tbody>
 
-<tr><td><img src="./GNSVR_files/9_gqa.gif" width="500">&nbsp;&nbsp;&nbsp;&nbsp;
+<tr><td><img id="gqa" src="./GNSVR_files/9_gqa.png" width="500">&nbsp;&nbsp;&nbsp;&nbsp;
     <b><p align="center" style="margin:-10px">(a) GQA</p></b>
   </td>
-  <td><img src="./GNSVR_files/10_refcoco.gif" width="500">
+  <td><img id="refcoco" src="./GNSVR_files/10_refcoco.png" width="500">
     <b><p align="center" style="margin:-10px">(b) RefCOCO</p></b>
   </td>
 </tr>
@@ -92,10 +106,10 @@
 
 <table align="center"><tbody>
 
-<tr><td><img src="./GNSVR_files/11_imgedit.gif" width="500">&nbsp;&nbsp;&nbsp;&nbsp;
+<tr><td><img id="imgedit" src="./GNSVR_files/11_imgedit.png" width="500">&nbsp;&nbsp;&nbsp;&nbsp;
     <b><p align="center" style="margin:-10px">(a) Image Editing</p></b>
   </td>
-  <td><img src="./GNSVR_files/12_okdet.gif" width="500">
+  <td><img id="okdet" src="./GNSVR_files/12_okdet.png" width="500">
     <b><p align="center" style="margin:-10px">(b) Object Tagging</p></b>
   </td>
 </tr>
@@ -104,15 +118,78 @@
 
 <table align="center"><tbody>
 
-<tr><td><img src="./GNSVR_files/13_raven.gif" width="500">&nbsp;&nbsp;&nbsp;&nbsp;
+<tr><td><img id="raven" src="./GNSVR_files/13_raven.png" width="500">&nbsp;&nbsp;&nbsp;&nbsp;
     <b><p align="center" style="margin:-10px">(a) RAVEN</p></b>
   </td>
-  <td><img src="./GNSVR_files/14_mewl.gif" width="500">
+  <td><img id="mewl" src="./GNSVR_files/14_mewl.png" width="500">
     <b><p align="center" style="margin:-10px">(b) MEWL</p></b>
   </td>
 </tr>
 </tbody></table>
 <br>
+
+<script>
+  $(function() {
+      $("#gqa").hover(
+          function() {
+              $(this).attr("src", "./GNSVR_files/9_gqa.gif");
+          },
+          function() {
+              $(this).attr("src", "./GNSVR_files/9_gqa.png");
+          }
+      );
+  });
+  $(function() {
+      $("#refcoco").hover(
+          function() {
+              $(this).attr("src", "./GNSVR_files/10_refcoco.gif");
+          },
+          function() {
+              $(this).attr("src", "./GNSVR_files/10_refcoco.png");
+          }
+      );
+  });
+  $(function() {
+      $("#imgedit").hover(
+          function() {
+              $(this).attr("src", "./GNSVR_files/11_imgedit.gif");
+          },
+          function() {
+              $(this).attr("src", "./GNSVR_files/11_imgedit.png");
+          }
+      );
+  });
+  $(function() {
+      $("#okdet").hover(
+          function() {
+              $(this).attr("src", "./GNSVR_files/12_okdet.gif");
+          },
+          function() {
+              $(this).attr("src", "./GNSVR_files/12_okdet.png");
+          }
+      );
+  });
+  $(function() {
+      $("#raven").hover(
+          function() {
+              $(this).attr("src", "./GNSVR_files/13_raven.gif");
+          },
+          function() {
+              $(this).attr("src", "./GNSVR_files/13_raven.png");
+          }
+      );
+  });
+  $(function() {
+      $("#mewl").hover(
+          function() {
+              $(this).attr("src", "./GNSVR_files/14_mewl.gif");
+          },
+          function() {
+              $(this).attr("src", "./GNSVR_files/14_mewl.png");
+          }
+      );
+  });
+</script>
 
 </div>
 

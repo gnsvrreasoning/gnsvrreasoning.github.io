@@ -8,6 +8,9 @@ body {
 	background-color: #fff;
 	font-weight:normal;
 }
+.abstract {
+	font-family: 'Noto Sans', sans-serif;
+}
 .htex {
 	font-family : Arial;	
 	text-align:right;
