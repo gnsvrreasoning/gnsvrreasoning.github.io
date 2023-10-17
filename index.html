@@ -68,7 +68,22 @@
 <span class="section-title"> Framework </span>
 <br><br>
 <table align="center"><tbody>
-<tr><td><center><img id="stage123" src="./GNSVR_files/678_stage123.gif" width="1000"></center></td></tr>
+<tr><td><center><img id="stage123" src="./GNSVR_files/678_stage123.gif" width="1000"></center>
+<span class="abstract">
+<p>
+The framework of our GNSVR, which contains three stages, module initialization, module
+generation, and module execution. In stage 1, we feed the questions and the signature of the existing
+modules to the LLM and ask it to identify whether we can handle the query within the operations of
+the existing modules. If not, we ask the LLM to generate the signature of the new module (i.e. the
+input and output) and predict the reasoning steps to handle the query task. In stage 2, we feed the
+module signature and the testing cases to the LLM and ask the LLM to implement the module and
+test its pass rate on the training examples. We only accept the modules that successfully handle the
+query. In stage 3, we first use the LLM to parse the query into symbolic operations and then execute
+these operations on the test images with the help of the scalable module library. We take VQA
+as an example and such a framework can also be expanded to other tasks like referring expression
+comprehension and Raven.</p>
+</span>
+</td></tr>
 </tbody></table>
 </div>
 
