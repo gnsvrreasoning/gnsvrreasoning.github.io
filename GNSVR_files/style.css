@@ -15,6 +15,13 @@ body {
     line-height: 1.5;
     color: #212529;
 }
+.caption2 {
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+}
 .htex {
 	font-family : Arial;	
 	text-align:right;
